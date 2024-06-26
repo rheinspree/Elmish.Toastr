@@ -157,7 +157,8 @@ module Toastr =
     [<Emit("Object.assign({}, $0, $1)")>]
     let private mergeObjects x y = jsNative
     
-    let mutable private options : ToastrOptions =  import "options" "toastr"
+    let private optionsImport : ToastrOptions =  import "options" "toastr"
+    let mutable private options : ToastrOptions = optionsImport
     
     /// Overrides global options
     let overrideOptions (opts: ToastrOptions) : unit = 
